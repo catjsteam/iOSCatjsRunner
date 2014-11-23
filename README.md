@@ -22,7 +22,9 @@ Import the project to XCode and run the application on you iOS device
 2. Open the iOS - Catjs Runner from your device
 
 3. Copy the **JSON POST path** and config your catjsproject.json in the catjs project with this address.<br />
-Example:
+
+
+Example for catproject.json the is config to run the test on iOS device:
 	
 	{
 	    "name": "myproject",

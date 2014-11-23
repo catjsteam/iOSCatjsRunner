@@ -9,7 +9,7 @@ With this project you can run your catjs tests on iOS devices
 
 We recommend you to start with our tutorials on :
 
-[catjs](https://github.com/catjsteam/catjs) or [catjs jqm seed](https://github.com/ransnir/catjs-jqm-seed)
+[catjs tutorial video](https://www.youtube.com/watch?v=IlH_Y5dFEx8&list=PLNBO54hs1uMWJcL9y1RGZti2w9PEtUVVX) or [catjs jqm seed](https://github.com/ransnir/catjs-jqm-seed)
 
 ## Install
 
@@ -64,8 +64,8 @@ Example for catproject.json the is config to run the test on iOS device:
 	}
 
 5. Now if you feel ready open the command line from the cat-project and run the command:
-	
-	catcli -sr
+		
+		catcli -sr
 
 
 Enjoy

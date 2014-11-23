@@ -5,7 +5,7 @@ This is iOS - XCode project - for Catjs Runner
 
 **iOS - Catjs Runner** is a part of [catjs](https://github.com/catjsteam/catjs)
 
-With this project you can run you catjs tests on iOS devices
+With this project you can run your catjs tests on iOS devices
 
 We recommend you to start with our tutorials on :
 
@@ -17,11 +17,13 @@ Import the project to XCode and run the application on you iOS device
 
 ## Setting the application with catjs
 
-1. Setup you catjs project *[see tutorial](https://www.youtube.com/watch?v=IlH_Y5dFEx8&list=PLNBO54hs1uMWJcL9y1RGZti2w9PEtUVVX)
+1. Setup you catjs project *[see tutorial](https://www.youtube.com/watch?v=IlH_Y5dFEx8&list=PLNBO54hs1uMWJcL9y1RGZti2w9PEtUVVX)*
 
 2. Open the iOS - Catjs Runner from your device
 
-3. Copy the **JSON POST path** and config your catjsproject.json in the catjs project with this address.<br />
+3. Check that your catjs server and iOS are on the same WiFi and accessible.
+
+4. Copy the **JSON POST path** that is written on the iOSCatjsRunner screen and add it to your catjsproject.json in the catjs project.<br />
 
 
 Example for catproject.json the is config to run the test on iOS device:
@@ -60,3 +62,11 @@ Example for catproject.json the is config to run the test on iOS device:
 
 	    ]
 	}
+
+5. Now if you feel ready open the command line from the cat-project and run the command:
+	
+	catcli -sr
+
+
+Enjoy
+catjsteam

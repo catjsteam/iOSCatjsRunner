@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A85E4810-B5E5-46C5-A72D-F9AA0650802D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CATRunner</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3C5C7862-C299-4664-80FD-2BBD1A97DFF8</key>
+		<string>ssh://mydtbld0023.isr.hp.com:7999/aam/ios.git</string>
+		<key>EF1E7ACF983AB13B8050605FB7DAEAB496EA3AE2</key>
+		<string>https://github.com/HPSoftware/CAT.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>runner/mobile/iPhone/CATRunner.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3C5C7862-C299-4664-80FD-2BBD1A97DFF8</key>
+		<string>../../../../../../ios_repo</string>
+		<key>EF1E7ACF983AB13B8050605FB7DAEAB496EA3AE2</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/HPSoftware/CAT.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EF1E7ACF983AB13B8050605FB7DAEAB496EA3AE2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EF1E7ACF983AB13B8050605FB7DAEAB496EA3AE2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CAT</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3C5C7862-C299-4664-80FD-2BBD1A97DFF8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios_repo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -13,7 +13,7 @@ We recommend you to start with our tutorials on :
 
 ## Install
 
-Import the project to XCode and run the application on you iOS device
+Import the project to XCode and run the application on your iOS device
 
 ## Setting the application with catjs
 

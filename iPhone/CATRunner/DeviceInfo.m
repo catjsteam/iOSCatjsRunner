@@ -266,49 +266,6 @@
                                     cpuArg, @"cpu",
                                     nil];
     
-    
-    
-    
-//    double sumUsage = 0.0;
-//    double sumTotal = 0.0;
-//    
-//    for(int i=0; i< cpuArg.count; i = i + 2)
-//    {
-//        double tempUsage = [[cpuArg objectAtIndex:i] doubleValue];
-//        double tempTotal = [[cpuArg objectAtIndex:(i + 1)] doubleValue];
-//        sumUsage += tempUsage;
-//        sumTotal += tempTotal;
-//    }
-//
-    
-    
-//
-//    double temp00 = [[cpuArg objectAtIndex:0] doubleValue];
-//    double temp01 = [[cpuArg objectAtIndex:1] doubleValue];
-//    
-//    double temp10 = [[cpuArg objectAtIndex:2] doubleValue];
-//    double temp11 = [[cpuArg objectAtIndex:3] doubleValue];
-//    
-//    NSLog(@"Core 1 Percentage : %f, Usage : %f, TotalCore : %f", (temp00 / temp01), temp00, temp01);
-//    NSLog(@"Core 0 Percentage : %f, Usage : %f, TotalCore : %f", (temp10 / temp11), temp10, temp11);
-//
-    
-
-    
-//    NSString *jsonString;
-//    NSError *error;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
-//                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-//                                                         error:&error];
-//    
-//    if (! jsonData) {
-//        NSLog(@"Got an error: %@", error);
-//    } else {
-//        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    }
-//    
-//    return jsonString;
-//
     return jsonDictionary;
 }
 

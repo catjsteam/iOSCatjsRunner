@@ -9,6 +9,8 @@
 #import "HPCViewController.h"
 #import "AFNetworking.h"
 #import "DeviceInfo.h"
+#import "Base64.h"
+#import "Screenshot.h"
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 #import <net/if_dl.h>
@@ -154,14 +156,19 @@ NSTimer *updateTimer;
     if ( [[URL scheme] isEqualToString:@"catjsgetscreenshot"]) {
         
         
-        NSString *eventJSONStr = [self getParamsFromUrl:urlString forParams:@"scrapName="];
-        
-        NSLog(@"enter to screenshot");
+        NSString *scrapName = [self getParamsFromUrl:urlString forParams:@"scrapName="];
+        NSString *deviceId = [self getParamsFromUrl:urlString forParams:@"deviceId="];
+
         UIImage* theImage = [self getScreenshot];
         
-        [self sendPostWithScreenshot:theImage forScrap:eventJSONStr];
+        Screenshot* screenshotManager = [[Screenshot alloc] init];
+
+        [screenshotManager sendPostWithScreenshot:theImage
+                                         forScrap:scrapName
+                                      forDeviceId:deviceId
+                                     forServerUrl:baseUrl];
         
-        NSLog(@"send post");
+
        // [self sendPostRequest];
         shouldStartLoad = NO; // comes from our JS RnR lib so must not be loaded.
     } else if ([[URL scheme] isEqualToString:@"catjsdeviceinfo"]) {
@@ -184,6 +191,10 @@ NSTimer *updateTimer;
     NSArray *urlParts = [urlString componentsSeparatedByString:forParam];
     if ([urlParts count]==2) {
         eventJSONStr = urlParts[1];
+        
+        NSArray *urlParts = [eventJSONStr componentsSeparatedByString:@"&"];
+        
+        eventJSONStr = urlParts[0];
         // unscape
         if (eventJSONStr) {
             eventJSONStr = [eventJSONStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -193,32 +204,6 @@ NSTimer *updateTimer;
     return eventJSONStr;
     
     
-}
-
-- (void)sendPostWithScreenshot:(UIImage*)thisImage
-                              forScrap:(NSString*)scrapName{
-    
-    NSString *screenshotUrl = [NSString stringWithFormat:@"%@/screenshot", baseUrl];
-    NSLog(@"send post request to: %@", screenshotUrl);
-
-    
-    UIDevice *deviceInfo = [UIDevice currentDevice];
-
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:screenshotUrl]];
-    NSData *imageData = UIImagePNGRepresentation(thisImage);
-    NSDictionary *parameters = @{@"scrapName": scrapName, @"deviceName" : deviceInfo.name};
-    
-    AFHTTPRequestOperation *op = [manager POST:screenshotUrl parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        //do not put image inside parameters dictionary as I did, but append it!
-        [formData appendPartWithFileData:imageData name:@"photo" fileName:@"photo.jpg" mimeType:@"image/jpeg"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //NSLog(@"Error: %@ ***** %@", operation.responseString, error);
-    }];
-    [op start];
-    
-    return;
 }
 
 

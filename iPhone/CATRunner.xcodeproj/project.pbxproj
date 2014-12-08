@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A8021D0D1A14B1C500E7B798 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A8021D0C1A14B1C500E7B798 /* DeviceInfo.m */; };
+		A862706B1A34B15E0096265A /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A862706A1A34B15E0096265A /* Base64.m */; };
+		A862706F1A35AAB70096265A /* Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = A862706E1A35AAB70096265A /* Screenshot.m */; };
 		A87A59DC1A0A610500CB4E76 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A87A59CC1A0A610500CB4E76 /* AFNetworkActivityIndicatorManager.m */; };
 		A87A59DD1A0A610500CB4E76 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A87A59CE1A0A610500CB4E76 /* UIActivityIndicatorView+AFNetworking.m */; };
 		A87A59DE1A0A610500CB4E76 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A87A59D01A0A610500CB4E76 /* UIAlertView+AFNetworking.m */; };
@@ -105,6 +107,10 @@
 /* Begin PBXFileReference section */
 		A8021D0B1A14B1C500E7B798 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
 		A8021D0C1A14B1C500E7B798 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
+		A86270691A34B15E0096265A /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		A862706A1A34B15E0096265A /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		A862706D1A35AAB70096265A /* Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screenshot.h; sourceTree = "<group>"; };
+		A862706E1A35AAB70096265A /* Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Screenshot.m; sourceTree = "<group>"; };
 		A87A59CB1A0A610500CB4E76 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		A87A59CC1A0A610500CB4E76 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		A87A59CD1A0A610500CB4E76 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -264,6 +270,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A86270681A34B15E0096265A /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				A86270691A34B15E0096265A /* Base64.h */,
+				A862706A1A34B15E0096265A /* Base64.m */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
+		A862706C1A35AA5D0096265A /* Screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				A862706D1A35AAB70096265A /* Screenshot.h */,
+				A862706E1A35AAB70096265A /* Screenshot.m */,
+			);
+			name = Screenshot;
+			sourceTree = "<group>";
+		};
 		A87A59CA1A0A610500CB4E76 /* UIKit+AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +371,8 @@
 		F740274C1896AD7600EF9E5E /* CATRunner */ = {
 			isa = PBXGroup;
 			children = (
+				A862706C1A35AA5D0096265A /* Screenshot */,
+				A86270681A34B15E0096265A /* Base64 */,
 				A87A59E41A0A610D00CB4E76 /* AFNetworking */,
 				A87A59CA1A0A610500CB4E76 /* UIKit+AFNetworking */,
 				F74027F61896B93D00EF9E5E /* CATHTTPConnection.h */,
@@ -753,7 +779,9 @@
 				F74027DC1896B1B000EF9E5E /* DDAbstractDatabaseLogger.m in Sources */,
 				A87A59FB1A0A610D00CB4E76 /* AFNetworkReachabilityManager.m in Sources */,
 				F74027B61896AF4100EF9E5E /* HTTPConnection.m in Sources */,
+				A862706B1A34B15E0096265A /* Base64.m in Sources */,
 				F74027B51896AF4100EF9E5E /* HTTPAuthenticationRequest.m in Sources */,
+				A862706F1A35AAB70096265A /* Screenshot.m in Sources */,
 				F74027BF1896AF4100EF9E5E /* HTTPFileResponse.m in Sources */,
 				F74027B41896AF4100EF9E5E /* DDRange.m in Sources */,
 				F74027F21896B1CD00EF9E5E /* AsyncUdpSocket.m in Sources */,

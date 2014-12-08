@@ -32,10 +32,33 @@ NSTimer *updateTimer;
 
 @implementation HPCViewController
 
+- (void)willAnimateRotationToInterfaceOrientation: (UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self setWebViewOrientation];
+}
+
+- (void)setWebViewOrientation {
+    
+    
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    if(orientation == 0) {
+        [self.webView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+    if(orientation == UIInterfaceOrientationPortrait) {
+        [self.webView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    } else if(orientation == UIInterfaceOrientationLandscapeLeft ||
+              orientation == UIInterfaceOrientationLandscapeRight) {
+        [self.webView setFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     _webView.delegate = self;
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -72,7 +95,8 @@ NSTimer *updateTimer;
 
 - (void)displayWelcomeInWebView
 {
-    NSMutableString *html = [NSMutableString stringWithString: @"<html><head><title>CAT</title></head><body style=\"background:transparent;\">"];
+    NSMutableString *html = [NSMutableString stringWithString:
+                             @"<html><head><title>CAT</title></head><body\">"];
     
     //continue building the string
     [html appendString:@"<H1>Welcome to CAT Runner</H1>\n"];
@@ -88,7 +112,7 @@ NSTimer *updateTimer;
     //pass the string to the webview
     [self.webView loadHTMLString:[html description] baseURL:nil];
     
-    
+    [self setWebViewOrientation];
 
     
 }
@@ -202,8 +226,6 @@ NSTimer *updateTimer;
     }
     
     return eventJSONStr;
-    
-    
 }
 
 

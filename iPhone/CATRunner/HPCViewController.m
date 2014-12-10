@@ -232,9 +232,12 @@ NSTimer *updateTimer;
 - (UIImage *)getScreenshot
 {
     NSLog(@"try to take screenshot in new method");
-    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
-    [self.webView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage*theImage=UIGraphicsGetImageFromCurrentImageContext();
+    UIScreen *screen = [UIScreen mainScreen] ;
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    UIView *view = [screen snapshotViewAfterScreenUpdates:YES];
+    UIGraphicsBeginImageContextWithOptions(screen.bounds.size, NO, 0);
+    [keyWindow drawViewHierarchyInRect:keyWindow.bounds afterScreenUpdates:YES];
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
     

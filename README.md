@@ -61,6 +61,18 @@ Example for catproject.json the is config to run the test on iOS device:
 		    ]
 		}
 
+6. add scraps
+
+<!--
+            @[scrap
+				@@name testDeviceInfoAndScreenshot
+                @@embed true
+                @@deviceinfo deviceinfo()
+                @@screenshot screenshot()
+			]@
+    -->
+	
+
 5. Now if you feel ready open the command line from the cat-project and run the command:
 		
 		catcli -sr

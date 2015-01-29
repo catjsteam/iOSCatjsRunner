@@ -117,26 +117,26 @@ NSTimer *updateTimer;
     
 }
 
-- (void)mangerDeviceInfo:(NSString *)interval
+- (void)mangerDeviceInfo:(NSString *)interval forDeviceId:(NSString *)deviceId
 {
     BOOL boolinterval = [interval boolValue];
     if (boolinterval) {
             updateTimer = [NSTimer scheduledTimerWithTimeInterval:4
                                                            target:self
                                                          selector:@selector(updateDeviceInfo:)
-                                                         userInfo:nil
-                                                          repeats:YES];
+                                                         userInfo:deviceId                                                           repeats:YES];
     } else {
-        [self getDeviceInfo];
+        [self getDeviceInfo:deviceId];
     }
 }
 
 
 - (void)updateDeviceInfo:(NSTimer *)timer {
-    [self getDeviceInfo];
+    NSString *deviceId = (NSString*)[timer userInfo];
+    [self getDeviceInfo:deviceId];
 }
 
-- (void)getDeviceInfo
+- (void)getDeviceInfo:(NSString *)deviceId
 {
     @autoreleasepool {
         
@@ -149,10 +149,18 @@ NSTimer *updateTimer;
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         
         NSDictionary *params = [deviceInfoObj getFullData];
+        NSDictionary *deviceIdDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            deviceId, @"deviceId",
+                                            nil];
+
+        NSMutableDictionary *combinedAttributes = [NSMutableDictionary dictionaryWithCapacity:20];
+        [combinedAttributes addEntriesFromDictionary:params];
+        [combinedAttributes addEntriesFromDictionary:deviceIdDictionary];
+        
         
         NSLog(@"send device info data back to server");
         
-        [manager POST:deviceInfoUrl parameters:params
+        [manager POST:deviceInfoUrl parameters:combinedAttributes
               success:^(AFHTTPRequestOperation *operation, id responseObject)
         {
             NSLog(@"JSON: %@", responseObject);
@@ -198,8 +206,10 @@ NSTimer *updateTimer;
     } else if ([[URL scheme] isEqualToString:@"catjsdeviceinfo"]) {
 
         NSString *eventJSONStr = [self getParamsFromUrl:urlString forParams:@"interval="];
+        NSString *deviceId = [self getParamsFromUrl:urlString forParams:@"deviceId="];
         
-        [self mangerDeviceInfo:eventJSONStr];
+        [self mangerDeviceInfo:eventJSONStr
+                   forDeviceId:deviceId];
     }
     return shouldStartLoad;
 }
